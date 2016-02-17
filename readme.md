@@ -2,7 +2,7 @@
 
 ## The React way
 
-State flows from parent components to children through props. User actions are communicated between components with callback props.
+Each component maintains it's own state. When a component's state is based on another component, callbacks are used to keep them synced.
 
 ## The Reflux way
 
