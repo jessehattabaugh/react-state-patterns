@@ -1,11 +1,11 @@
 {
-  "name": "heartburn",
+  "name": "churn",
   "version": "1.0.0",
   "description": "Patterns for managing state in a React + Reflux app",
   "scripts": {
-    "react": "budo a.js --live -- -t babelify",
-    "reflux": "budo b.js --live -- -t babelify",
-    "redux": "budo z.js --live -- -t babelify"
+    "react": "budo react-stateful-components.js --live -- -t babelify",
+    "reflux": "budo reflux-smart-components.js --live -- -t babelify",
+    "redux": "budo redux.js --live -- -t babelify"
   },
   "author": "Jesse Hattabaugh<arkanciscan@gmail.com>",
   "license": "Artistic-2.0",
