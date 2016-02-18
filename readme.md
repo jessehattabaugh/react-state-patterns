@@ -1,4 +1,4 @@
-# Patterns for managing state in a React + Reflux app
+# Patterns for managing state in a React app
 
 ## Stateful React Components
 
@@ -24,13 +24,13 @@ Components get their state by listening to Stores. User actions are communicated
 ### Cons
 * Components require knowledge of Actions and Stores
 
-## Avoid Stores
+## Use Reflux but avoid Stores
 
 `not yet implemented`
 
 Components are the source of their own state. User actions are communicated between components by Actions.
 
-# Redux
+## Redux
 
 `$ npm run redux`
 
