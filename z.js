@@ -3,75 +3,73 @@ import {render} from 'react-dom'
 import {createStore} from 'redux'
 import {connect, Provider} from 'react-redux'
 
-function reducer(state = {items: ['apple', 'kiwi', 'banana']}, action) {
+function reducer(state = {fruits: ['apple', 'kiwi', 'banana']}, action) {
   var newState = Object.assign({}, state);
-  if (action.type == 'selectItem') {
-    newState.selectedItem = action.item;
+  if (action.type == 'selectFruit') {
+    newState.selectedFruit = action.fruit;
   }
   return newState;
 }
 
-const store = createStore(reducer);
+var store = createStore(reducer);
 
-function selectItem(item) {
+function selectFruit(fruit) {
   return {
-    type: 'selectItem',
-    item: item
+    type: 'selectFruit',
+    fruit: fruit
   };
 }
 
-const List = connect(
+var List = connect(
   function (state) {
     return {
-      items: state.items,
-      selectedItem: state.selectedItem
+      fruits: state.fruits,
+      selectedFruit: state.selectedFruit
     };
   },
   function (dispatch) {
     return {
-      onSelect: function (item) {
-        dispatch(selectItem(item));
+      onSelect: function (fruit) {
+        dispatch(selectFruit(fruit));
       }
     };
   }
 )(renderList);
 
-function renderList({items, onSelect, selectedItem}) {
-  console.log(selectedItem);
+function renderList({fruits, onSelect, selectedFruit}) {
   return <ul>
-    {items.map(function (item) {
-      console.log(selectedItem, item)
+    {fruits.map(function (fruit) {
       return <li
-        key={item}
+        key={fruit}
         onClick={function () {
-          onSelect(item);
+          onSelect(fruit);
         }}
-        style={{textDecoration: selectedItem == item ? 'underline' : 'none'}}>
-          {item}
+        style={{textDecoration: selectedFruit == fruit ? 'underline' : 'none'}}>
+          {fruit}
         </li>
     })}
   </ul>;
 }
 
-const Dialog = connect(
+var Dialog = connect(
   function (state) {
     return {
-      selectedItem: state.selectedItem
+      selectedFruit: state.selectedFruit
     };
   },
   function (dispatch) {
     return {
       onClose: function () {
-        dispatch(selectItem());
+        dispatch(selectFruit());
       }
     };
   }
 )(renderDialog);
 
-function renderDialog({selectedItem, onClose}) {
+function renderDialog({selectedFruit, onClose}) {
   return <div>
     <a onClick={onClose}>close</a>
-    {selectedItem}
+    {selectedFruit}
   </div>;
 }
 
