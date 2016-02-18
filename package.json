@@ -1,7 +1,7 @@
 {
-  "name": "churn",
-  "version": "1.0.0",
-  "description": "Patterns for managing state in a React + Reflux app",
+  "name": "react-state-patterns",
+  "version": "0.0.0",
+  "description": "Patterns for managing state",
   "scripts": {
     "react": "budo react-stateful-components.js --live -- -t babelify",
     "reflux": "budo reflux-smart-components.js --live -- -t babelify",

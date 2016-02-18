@@ -1,17 +1,44 @@
 # Patterns for managing state in a React + Reflux app
 
-## The React way
+## Stateful React Components
 
-Each component maintains it's own state. When a component's state is based on another component, callbacks are used to keep them synced.
+`$ npm run react`
 
-## The Reflux way
+Each component is the source of it's own state. When a component's state is based on another component, callbacks are used to keep them synced.
+
+### Pros
+* No flux dependencies
+
+### Cons
+* Syncing state requires boilerplate
+
+## Reflux with components connected to stores
+
+`$ npm run reflux`
 
 Components get their state by listening to Stores. User actions are communicated between components by Actions.
 
+### Pros
+* State is synced with little extra effort
+
+### Cons
+* Components require knowledge of Actions and Stores
+
 ## Avoid Stores
 
-Componenents are the source of their own state. User actions are communicated between componenets by Actions
+`not yet implemented`
 
-## Avoid Reflux
+Components are the source of their own state. User actions are communicated between components by Actions.
 
-Creating Stores for every piece of state is burdensome. Components are the source of their own state, and user actions are communicated between components by callbacks, until that becomes burdensome, then use Reflux.
+# Redux
+
+`$ npm run redux`
+
+With Redux, there is only one Store. Components are always stateless. Components get their props connected to action creators and the Store's state using Container Components.
+
+## Pros
+* Stateless components are easier to reason about
+* Store and Actions are injected into Components making them easier to test
+
+## Cons
+* Container Components add extra boilerplate
