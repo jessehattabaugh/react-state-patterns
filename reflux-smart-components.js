@@ -34,7 +34,18 @@ var App = React.createClass({
 });
 
 var List = React.createClass({
-  mixins: [Reflux.connect(fruitStore)],
+  getInitialState: function () {
+    return fruitStore.getInitialState();
+  },
+  componentDidMount: function() {
+    this.unsubscribe = fruitStore.listen(this.onFruitsChange);
+  },
+  componentWillUnmount: function() {
+    this.unsubscribe();
+  },
+  onFruitsChange: function (data) {
+    this.setState(data);
+  },
   render: function () {
     return (
       <ul>
@@ -58,7 +69,22 @@ var List = React.createClass({
 });
 
 var Dialog = React.createClass({
-  mixins: [Reflux.connect(fruitStore)],
+  getInitialState: function () {
+    return {
+      selectedFruit: ''
+    };
+  },
+  componentDidMount: function() {
+    this.unsubscribe = fruitStore.listen(this.onFruitsChange);
+  },
+  componentWillUnmount: function() {
+    this.unsubscribe();
+  },
+  onFruitsChange: function (data) {
+    this.setState({
+      selectedFruit: data.selectedFruit
+    });
+  },
   render: function () {
     return (
       <div>
