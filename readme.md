@@ -24,11 +24,24 @@ Components get their state by listening to Stores. User actions are communicated
 ### Cons
 * Components require knowledge of Actions and Stores
 
-## Use Reflux but avoid Stores
+## Avoid using Reflux Stores
 
 `not yet implemented`
 
 Components are the source of their own state. User actions are communicated between components by Actions.
+
+## Reflux with store only connected to the root component
+
+`not yet implemented`
+
+The root component gets it's state from a Store, all other components get their state from props. Actions trigger Store updates, which updates the root component and state trickles down.
+
+### Pros
+* Root component is only one with state
+* Components don't require knowledge of Stores
+
+### Cons
+* Components still require knowledge of Actions
 
 ## Redux
 
@@ -37,8 +50,8 @@ Components are the source of their own state. User actions are communicated betw
 With Redux, there is only one Store. Components are always stateless. Components get their props connected to action creators and the Store's state using Container Components.
 
 ## Pros
-* Stateless components are easier to reason about
-* Store and Actions are injected into Components making them easier to test
+* Stateless components
+* Presentation Components don't require knowledge of Stores or Actions
 
 ## Cons
-* Container Components add extra boilerplate
+* Container Components add extra cognitive load and code
