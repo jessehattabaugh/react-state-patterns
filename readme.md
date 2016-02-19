@@ -4,15 +4,20 @@
 
 `$ npm run react`
 
+[react-stateful-components.js](react-stateful-components.js)
+
 Each component is the source of it's own state. When a component's state is based on another component, callbacks are used to keep them synced.
 
 | Pros | Cons |
 | --- | --- |
-| No flux dependencies  | Syncing state requires boilerplate  |
+| No flux dependencies  | Syncing state is complicated |
+|  |  |
 
 ## Reflux with components connected to stores
 
 `$ npm run reflux`
+
+[reflux-smart-components.js](reflux-smart-components.js)
 
 Components get their state by listening to Stores. User actions are communicated between components by Actions.
 
@@ -40,6 +45,8 @@ The root component gets it's state from a Store, all other components get their 
 ## Redux
 
 `$ npm run redux`
+
+[redux.js](redux.js)
 
 With Redux, there is only one Store. Components are always stateless. Components get their props connected to action creators and the Store's state using Container Components.
 
