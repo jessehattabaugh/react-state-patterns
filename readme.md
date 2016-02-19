@@ -8,13 +8,7 @@ Each component is the source of it's own state. When a component's state is base
 
 | Pros | Cons |
 | --- | --- |
-| * No flux dependencies  | * Syncing state requires boilerplate  |
-
-### Pros
-
-
-### Cons
-
+| No flux dependencies  | Syncing state requires boilerplate  |
 
 ## Reflux with components connected to stores
 
@@ -22,11 +16,9 @@ Each component is the source of it's own state. When a component's state is base
 
 Components get their state by listening to Stores. User actions are communicated between components by Actions.
 
-### Pros
-* State is synced with little extra effort
-
-### Cons
-* Components require knowledge of Actions and Stores
+| Pros | Cons |
+| --- | --- |
+| State is synced with little extra effort | Components require knowledge of Actions and Stores |
 
 ## Avoid using Reflux Stores
 
@@ -40,12 +32,10 @@ Components are the source of their own state. User actions are communicated betw
 
 The root component gets it's state from a Store, all other components get their state from props. Actions trigger Store updates, which updates the root component and state trickles down.
 
-### Pros
-* Root component is only one with state
-* Components don't require knowledge of Stores
-
-### Cons
-* Components still require knowledge of Actions
+| Pros | Cons |
+| --- | --- |
+| Root component is only one with state | Components still require knowledge of Actions |
+| Components don't require knowledge of Stores |  |
 
 ## Redux
 
@@ -53,9 +43,7 @@ The root component gets it's state from a Store, all other components get their 
 
 With Redux, there is only one Store. Components are always stateless. Components get their props connected to action creators and the Store's state using Container Components.
 
-## Pros
-* Stateless components
-* Presentation Components don't require knowledge of Stores or Actions
-
-## Cons
-* Container Components add extra cognitive load and code
+| Pros | Cons |
+| --- | --- |
+| Stateless components | Container Components add extra cognitive load and code |
+| Presentation Components don't require knowledge of Stores or Actions |  |
