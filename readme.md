@@ -6,11 +6,15 @@
 
 Each component is the source of it's own state. When a component's state is based on another component, callbacks are used to keep them synced.
 
+| Pros | Cons |
+| --- | --- |
+| * No flux dependencies  | * Syncing state requires boilerplate  |
+
 ### Pros
-* No flux dependencies
+
 
 ### Cons
-* Syncing state requires boilerplate
+
 
 ## Reflux with components connected to stores
 
